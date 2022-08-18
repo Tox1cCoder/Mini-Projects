@@ -52,10 +52,12 @@ void ve_tuong_phai()
 
 void ve_tuong()
 {
+	SetColor(11);
 	ve_tuong_tren();
 	ve_tuong_duoi();
 	ve_tuong_trai();
 	ve_tuong_phai();
+	SetColor(7);
 }
 
 void khoi_tao_ran(int toadox[], int toadoy[])
@@ -113,24 +115,107 @@ void xoa(int a[], int x)
 	s--;
 }
 
-void xu_ly_ran(int toadox[], int toadoy[], int x, int y)
+bool kt_ran_cham_tuong(int x0, int y0)
+{
+	if (y0 == 1 && (x0 >= 10 && x0 <= 100))
+	{
+		return true;
+	}
+	else if (y0 == 26 && (x0 >= 10 && x0 <= 100))
+	{
+		return true;
+	}
+	else if (x0 == 100 && (y0 >= 1 && y0 <= 26))
+	{
+		return true;
+	}
+	else if (x0 == 10 && (y0 >= 1 && y0 <= 26))
+	{
+		return true;
+	}
+	return false;
+}
+
+bool kt_ran_cham_duoi(int toadox[], int toadoy[])
+{
+
+	for (int i = 1; i < s; i++)
+	{
+		if ((toadox[0] == toadox[i]) && (toadoy[0] == toadoy[i]))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool kt_ran_de_qua(int xqua, int yqua, int toadox[], int toadoy[])
+{
+	for (int i = 1; i < s; i++)
+	{
+		if ((xqua == toadox[i]) && (yqua == toadoy[i]))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+void tao_qua(int& xqua, int& yqua, int toadox[], int toadoy[])
+{
+	do
+	{
+		xqua = rand() % 89 + 11;
+		yqua = rand() % 24 + 2;
+
+	} while (kt_ran_de_qua(xqua, yqua, toadox, toadoy));
+	int i = rand() % 15 + 1;
+	SetColor(i);
+	gotoXY(xqua, yqua);
+	cout << "$";
+	SetColor(7);
+}
+
+bool kt_ran_an_qua(int xqua, int yqua, int x0, int y0)
+{
+	if ((x0 == xqua) && (y0 == yqua))
+	{
+		return true;
+	}
+	return false;
+}
+
+void xu_ly_ran(int toadox[], int toadoy[], int x, int y, int& xqua, int& yqua)
 {
 	them(toadox, x);
 	them(toadoy, y);
-	xoa(toadox, s - 1);
-	xoa(toadoy, s - 1);
+	if (!kt_ran_an_qua(xqua, yqua, toadox[0], toadoy[0]))
+	{
+		xoa(toadox, s - 1);
+		xoa(toadoy, s - 1);
+	}
+	else
+	{
+		s--;
+		tao_qua(xqua, yqua, toadox, toadoy);
+	}
 	ve_ran(toadox, toadoy);
 }
 
 int main()
 {
+	ShowCur(false);
+	srand(time(NULL));
+	bool gameover = false;
 	int toadox[MAX], toadoy[MAX];
+	int x = 50, y = 13, xqua = 0, yqua = 0, check = 2;
+
 	ve_tuong();
 	khoi_tao_ran(toadox, toadoy);
 	ve_ran(toadox, toadoy);
-	int x = 50, y = 13;
-	int check = 2;
-	while (true)
+	tao_qua(xqua, yqua, toadox, toadoy);
+
+	while (gameover == false)
 	{
 		xoa_du_lieu_cu(toadox, toadoy);
 		if (_kbhit())
@@ -174,10 +259,9 @@ int main()
 		{
 			x--;
 		}
-		xu_ly_ran(toadox, toadoy, x, y);
-		Sleep(150);
+		xu_ly_ran(toadox, toadoy, x, y, xqua, yqua);
+		gameover = kt_ran_cham_tuong(toadox[0], toadoy[0]) || kt_ran_cham_duoi(toadox, toadoy);
+		Sleep(100);
 	}
 	_getch();
-
-	return 0;
 }
