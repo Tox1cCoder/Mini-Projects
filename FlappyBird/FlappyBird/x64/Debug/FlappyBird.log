@@ -1,0 +1,9 @@
+﻿  FlappyBird.cpp
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(50,25): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(51,37): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(55,25): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(56,36): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(59,33): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(66,23): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+C:\Users\PC\source\repos\FlappyBird\FlappyBird\FlappyBird.cpp(76,23): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+  FlappyBird.vcxproj -> C:\Users\PC\source\repos\FlappyBird\x64\Debug\FlappyBird.exe
