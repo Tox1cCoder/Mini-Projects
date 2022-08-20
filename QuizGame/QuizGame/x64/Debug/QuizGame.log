@@ -1,0 +1,5 @@
+﻿  QuizGame.cpp
+C:\Users\PC\source\repos\QuizGame\QuizGame\QuizGame.cpp(25,23): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\QuizGame\QuizGame\QuizGame.cpp(33,20): warning C4566: character represented by universal-character-name '\uFFFD' cannot be represented in the current code page (1252)
+C:\Users\PC\source\repos\QuizGame\QuizGame\QuizGame.cpp(38,6): warning C4101: 'op': unreferenced local variable
+  QuizGame.vcxproj -> C:\Users\PC\source\repos\QuizGame\x64\Debug\QuizGame.exe
