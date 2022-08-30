@@ -1,0 +1,5 @@
+﻿  Dinosaur.cpp
+C:\Users\PC\source\repos\Dinosaur\Dinosaur\mylib.h(27,26): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\PC\source\repos\Dinosaur\Dinosaur\mylib.h(27,29): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\PC\source\repos\Dinosaur\Dinosaur\Dinosaur.cpp(59,18): warning C4309: '=': truncation of constant value
+  Dinosaur.vcxproj -> C:\Users\PC\source\repos\Dinosaur\x64\Debug\Dinosaur.exe
