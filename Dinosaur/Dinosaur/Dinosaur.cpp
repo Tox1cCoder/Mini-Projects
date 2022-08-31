@@ -11,6 +11,7 @@ int xdat = 10, ydat = ydino + h;
 int jump = 14;
 bool jcheck = false;
 char ground[3][sl_ground + 1];
+string space = "                ";
 string dino[6] =
 {
 	"           o-o ",
@@ -21,10 +22,8 @@ string dino[6] =
 	"    ^^         ",
 };
 
-void drawDino()
+void drawDino(int x, int y)
 {
-	int x = xdino;
-	int y = ydino;
 	for (int i = 0; i < h + 1; i++)
 	{
 		gotoXY(x, y);
@@ -103,6 +102,16 @@ void initGround()
 
 void drawGround()
 {
+	if (jcheck == false)
+	{
+		ground[0][xdino + 4 - xdat] = '^';
+		ground[0][xdino + 5 - xdat] = '^';
+	}
+	else 
+		{
+		ground[0][xdino + 4 - xdat] = '_';
+		ground[0][xdino + 5 - xdat] = '_';
+	}
 	for (int i = 0; i < 3; i++)
 	{
 		gotoXY(xdat, ydat + i);
@@ -123,13 +132,53 @@ void moveGround()
 
 void play()
 {
-	drawDino();
+	drawDino(xdino, ydino);
 	initGround();
 	drawGround();
-
+	int x = xdino, y = ydino;
+	int check = 2;
 	while (1)
 	{
+		if (check != 2)
+		{
+			drawDino(x, y);
+		}
 		moveGround();
+		if (_kbhit())
+		{
+			char c = _getch();
+			if (c == -32)
+			{
+				c = _getch();
+				if (c == 72 && check == 2)
+				{
+					check = 1;
+					jcheck = true;
+				}
+			}
+		}
+		if (check == 1)
+		{
+			gotoXY(x, y + h);
+			cout << space;
+			y--;
+		}
+		else if (check == 0)
+		{
+			gotoXY(x, y);
+			cout << space;
+			y++;
+		}
+		if (y == ydino - jump)
+		{
+			check = 0;
+		}
+		else if (y == ydino)
+		{
+			drawDino(x, y);
+			check = 2;
+			jcheck = false;
+		}
 		Sleep(10);
 	}
 }
