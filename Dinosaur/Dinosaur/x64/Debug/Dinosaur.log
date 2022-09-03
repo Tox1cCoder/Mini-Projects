@@ -1,5 +1,6 @@
 ﻿  Dinosaur.cpp
 C:\Users\PC\source\repos\Dinosaur\Dinosaur\mylib.h(27,26): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
 C:\Users\PC\source\repos\Dinosaur\Dinosaur\mylib.h(27,29): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\PC\source\repos\Dinosaur\Dinosaur\Dinosaur.cpp(60,18): warning C4309: '=': truncation of constant value
+C:\Users\PC\source\repos\Dinosaur\Dinosaur\Dinosaur.cpp(69,18): warning C4309: '=': truncation of constant value
+C:\Users\PC\source\repos\Dinosaur\Dinosaur\Dinosaur.cpp(309,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Dinosaur.vcxproj -> C:\Users\PC\source\repos\Dinosaur\x64\Debug\Dinosaur.exe
